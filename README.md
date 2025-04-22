@@ -69,12 +69,12 @@
 
 ## 📸 Screenshots
 
-*(Insert screenshots of Login Page, News Feed, Bookmarks Page, Dark Mode, etc.)*
+You can view screenshots of the app [here](https://github.com/pranjay-t/skimz/tree/main/asset/screenshots)
 
 ---
 
 ## 📦 Deliverables
 
 - [GitHub Repository](https://github.com/yourusername/flutter-news-app) ✅
-- [Google Drive Link (APK + Optional Video)](https://drive.google.com/your-link) ✅
+- [Google Drive Link (APK + Optional Video)](https://drive.google.com/file/d/1zP0e0BRKtC4wc5n127SNLgZEH0jFLYru/view?usp=sharing) ✅
 
