@@ -18,16 +18,18 @@
   - Bookmarks persist even after closing the app
 
 - **Navigation**
-  - TabBar used for seamless navigation between News and Bookmarks
+  - TabBar used for seamless navigation between different News topics and Bookmarks
 
 - **Optional Features**
-  - ✅ Pull-to-refresh
   - ✅ Dark mode
   - ✅ Search functionality
 
 ---
 
 ## 🧑‍💻 Tech Stack & Packages Used
+
+- **News API:** [NewsAPI.org](https://newsapi.org/) used as the news data provider
+
 
 | Package | Purpose |
 |--------|---------|
@@ -75,6 +77,6 @@ You can view screenshots of the app [here](https://github.com/pranjay-t/skimz/tr
 
 ## 📦 Deliverables
 
-- [GitHub Repository](https://github.com/yourusername/flutter-news-app) ✅
-- [Google Drive Link (APK + Optional Video)](https://drive.google.com/file/d/1zP0e0BRKtC4wc5n127SNLgZEH0jFLYru/view?usp=sharing) ✅
+- [GitHub Repository](https://github.com/pranjay-t/skimz) ✅
+- [Google Drive Link (APK)](https://drive.google.com/file/d/1zP0e0BRKtC4wc5n127SNLgZEH0jFLYru/view?usp=sharing) ✅
 
