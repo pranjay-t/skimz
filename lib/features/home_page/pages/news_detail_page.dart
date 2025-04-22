@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class NewsDetailPage extends StatefulWidget {
-  late String url; //pranjay: fix from here above error
+  late String url; 
   NewsDetailPage(this.url, {super.key});
 
   @override
@@ -64,20 +64,6 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
         children: [
           Container(
             margin: const EdgeInsets.all(5),
-            // child: WebView(
-            //   navigationDelegate: (NavigationRequest request) {
-            //     return NavigationDecision.prevent;
-            //   },
-            //   initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.require_user_action_for_all_media_types,
-            //     initialUrl: finalUrl,
-            //     javascriptMode: JavascriptMode.disabled,
-            //     // javascriptMode: JavascriptMode.unrestricted,
-            //     onWebViewCreated: (WebViewController webViewController) {
-            //       setState(() {
-            //         isLoading = false;
-            //         controller.complete(webViewController);
-            //       });
-            //     }),
             child: WebViewWidget(controller: _controller),
           ),
           if (isLoading)

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:skimz/core/components/news_card.dart';
-import 'package:skimz/core/constants/error_text.dart';
 import 'package:skimz/features/bookmark/controller/bookmark_controller.dart';
 import 'package:skimz/features/home_page/pages/news_detail_page.dart';
 
@@ -43,6 +42,7 @@ class _BookmarkScreenState extends ConsumerState<BookmarkScreen> {
       ),
       body: Container(
         color: Colors.black,
+        height: double.infinity,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -59,12 +59,20 @@ class _BookmarkScreenState extends ConsumerState<BookmarkScreen> {
                 ),
               ),
               if (bookmarks.isEmpty)
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 50),
-                  child: Text(
-                    "No bookmarks yet!",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
+                Column(
+                  children: [
+                    Image.asset('asset/images/nothing.png'),
+                    Text(
+                      "No Bookmarks Found",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontFamily: "Erode",
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.white,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 )
               else
                 ListView.builder(
@@ -81,7 +89,8 @@ class _BookmarkScreenState extends ConsumerState<BookmarkScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => NewsDetailPage(news.newsUrl),
+                                builder:
+                                    (context) => NewsDetailPage(news.newsUrl),
                               ),
                             );
                           },
@@ -92,7 +101,9 @@ class _BookmarkScreenState extends ConsumerState<BookmarkScreen> {
                               description: news.newsDes,
                               imageUrl: news.newsImg,
                               author: news.newsAuthor,
-                              publishedAt: formatPublishedDate(news.newsPublishedAt),
+                              publishedAt: formatPublishedDate(
+                                news.newsPublishedAt,
+                              ),
                             ),
                           ),
                         ),
@@ -102,14 +113,19 @@ class _BookmarkScreenState extends ConsumerState<BookmarkScreen> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                              filter: ImageFilter.blur(
+                                sigmaX: 5.0,
+                                sigmaY: 5.0,
+                              ),
                               child: IconButton(
                                 icon: Icon(
                                   Icons.bookmark,
                                   color: Theme.of(context).primaryColor,
                                 ),
                                 onPressed: () {
-                                  ref.read(bookmarkControllerProvider.notifier).toggleBookmark(news);
+                                  ref
+                                      .read(bookmarkControllerProvider.notifier)
+                                      .toggleBookmark(news);
                                 },
                               ),
                             ),

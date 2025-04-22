@@ -67,75 +67,94 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
 
       body: SingleChildScrollView(
-        child: Padding(
+        child: Container(
+          color: Colors.black,
           padding: const EdgeInsets.all(20.0),
-          child: SizedBox(
-            height: mobileHeight,
-            child: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'asset/images/login.png',
-                    height: 300,
-                    width: 300,
+          height: mobileHeight,
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('asset/images/login.png', height: 300, width: 300),
+                TextFormField(
+                  controller: _emailController,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                   ),
-                  TextFormField(
-                    controller: _emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(),
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "titlin",
+                      fontWeight: FontWeight.w600,
                     ),
-                    validator: _validateEmail,
-                    keyboardType: TextInputType.emailAddress,
+                    border: OutlineInputBorder(),
                   ),
-                  const SizedBox(height: 20),
-                  TextFormField(
-                    controller: _passwordController,
-                    obscureText: _obscurePassword,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      border: const OutlineInputBorder(),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscurePassword
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                        ),
-                        onPressed: () {
-                          setState(() => _obscurePassword = !_obscurePassword);
-                        },
-                      ),
+                  validator: _validateEmail,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: _passwordController,
+                  obscureText: _obscurePassword,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "titlin",
+                      fontWeight: FontWeight.w600,
                     ),
-                    validator: _validatePassword,
-                  ),
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: _submit,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).primaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+
+                    border: const OutlineInputBorder(),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscurePassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: Colors.white,
                       ),
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(
-                          fontFamily: "titlin",
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          decorationColor: Colors.white,
-                          fontSize: 25,
-                        ),
-                      ),
+                      onPressed: () {
+                        setState(() => _obscurePassword = !_obscurePassword);
+                      },
                     ),
                   ),
-                ],
-              ),
+                  validator: _validatePassword,
+                ),
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: _submit,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                        fontFamily: "titlin",
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        decorationColor: Colors.white,
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
